@@ -8,4 +8,5 @@ block content
                     th #{poll.title}
                 tr    
                     th= poll.body 
-            a(href="/", action="/polls/:id", method="get") Eliminar Encuesta
+                - let url = poll._id    
+            a(href="polls/"+url) Eliminar

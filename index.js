@@ -46,14 +46,15 @@ app.get("/polls/:id", async (req,res,next)=>{
     }
 });
 
-app.delete("/polls/:id", async(req, res, next) =>{
+app.get("/polls/:id", async(req, res, next) =>{
     try{
-        await Poll.deleteOne({_id: req.params.id});
-        res.status(204).send({});
+        const poll = await Poll.findById(req.params.id);
+        await poll.remove();
+        res.redirect("/")
     }catch(e){
-        return next(e);
+        next(e);
     }
-})
+});
 
 //Permite crear una encuesta
 app.post("/polls", async (req,res)=>{
