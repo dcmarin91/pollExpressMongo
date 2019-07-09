@@ -1,0 +1,11 @@
+extends layout
+block content
+    a(href="/polls/new") Nueva Encuesta
+    each poll in polls
+        div
+            table(style='width:20%', border='1')
+                tr
+                    th #{poll.title}
+                tr    
+                    th= poll.body 
+            a(href="/", action="/polls/:id", method="get") Eliminar Encuesta

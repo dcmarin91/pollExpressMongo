@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(action="/polls",method="post")
+        div
+            div
+                label(for="title") Title
+            input(type="text", id="title" name="title")
+
+        div
+            div
+                label(for="body") Description
+            textarea(id="body", name="body", rows="8")
+        button(type="submit") Enviar            
